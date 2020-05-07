@@ -8,10 +8,10 @@ def index(request):
     return render(request, 'index.html', {'data': data})
 
 def author_detail(request, id):
-    person = Author.objects.get(id)
+    person = Author.objects.get(id=id)
     recipe = Recipe.objects.filter(author=person)
     return render(request, 'author.html', {'person': person, 'recipe': recipe})
 
 def recipe_detail(request, id):
-    recipe = Recipe.objects.filter(id)
-    return render(request, 'recipe.html', {'recpie': recipe})
+    recipe = Recipe.objects.filter(id=id)
+    return render(request, 'recipe.html', {'recipe': recipe})

@@ -1,21 +1,21 @@
 <h1>recipe</h1>
 
-
 <ul>
+    {% for i in recipe%}
     <li>
-        {{recipe.title}}
+        {{i.title}}
     </li>
     <li>
-        <a href='/author/{{ author.id }}/'>{{ recipe.author }}</a>
+        By: <a href='{% url 'author' id=i.author.id %}'>{{ i.author }}</a>
     </li>
     <li>
-        {{recipe.req_time}}
+        Time to make: {{i.req_time}}
     </li>
     <li>
-        {{recipe.description}}
+        {{i.description}}
     </li>
     <li>
-        {{recipe.instructions}}
+        {{i.instructions}}
     </li>
- 
+    {% endfor%}
 </ul>
